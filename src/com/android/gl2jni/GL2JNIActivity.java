@@ -79,13 +79,26 @@ public class GL2JNIActivity extends Activity implements View.OnTouchListener {
 	@Override
 	public boolean onTouch(View v, MotionEvent event) {
 		// TODO Auto-generated method stub
-		Float[] normilized = ConvertToGL(event.getX(), event.getY());
-		if (event.getAction() == MotionEvent.ACTION_DOWN){
+		Float[] normilized = null;
+		switch(event.getAction() & MotionEvent.ACTION_MASK){
+		case MotionEvent.ACTION_DOWN:
+			normilized = ConvertToGL(event.getX(), event.getY());
 			lib.touch(normilized[0], normilized[1]);
-			//playA();
-		}
-		else
+			break;
+		case MotionEvent.ACTION_POINTER_DOWN:
+//			Log.d("Test",Integer.toString(event.getActionIndex()));
+			normilized = ConvertToGL(event.getX(event.getActionIndex()), event.getY(event.getActionIndex()));
+			lib.touch(normilized[0], normilized[1]);
+			break;
+		case MotionEvent.ACTION_UP:
+			normilized = ConvertToGL(event.getX(), event.getY());
 			GL2JNILib.touchUp(normilized[0], normilized[1]);
+		case MotionEvent.ACTION_POINTER_UP:
+//			Log.d("Test",Integer.toString(event.getActionIndex()));
+			normilized = ConvertToGL(event.getX(event.getActionIndex()), event.getY(event.getActionIndex()));
+			lib.touchUp(normilized[0], normilized[1]);
+			break;
+		}
 		
 //		Toast toast = Toast.makeText(this.getApplicationContext(), "Touched "
 //				+ normilized[0] + "," + normilized[1], Toast.LENGTH_SHORT);

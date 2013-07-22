@@ -333,80 +333,72 @@ JNIEXPORT void JNICALL Java_com_android_gl2jni_GL2JNILib_touch(JNIEnv * env, job
 	  LOGI("Clicked 1");
     current1 = &red[0];
     jclass clazz = env->FindClass("com/android/gl2jni/GL2JNILib");
-    	  	  	      	  //jclass clazz = env->GetObjectClass(obj);
-    	  	  	      jmethodID method = env->GetMethodID(clazz, "playB", "()V");
-    	  	  	      env->CallVoidMethod(obj, method);
-    //jmethodID method = env->GetMethodID(objclass, "PlayG", "(m_SizeClass)V");
+    jmethodID method = env->GetMethodID(clazz, "playB", "()V");
+    env->CallVoidMethod(obj, method);
   }
   else if(checkClick(x,y, &gTriangleVertices2[0],8)==1){
 	  jclass clazz = env->FindClass("com/android/gl2jni/GL2JNILib");
-	  	  	  	      	  //jclass clazz = env->GetObjectClass(obj);
-	  	  	  	      jmethodID method = env->GetMethodID(clazz, "playE", "()V");
-	  	  	  	      env->CallVoidMethod(obj, method);
-	  LOGI("Clicked 2");
+	  jmethodID method = env->GetMethodID(clazz, "playE", "()V");
+	  env->CallVoidMethod(obj, method);
 	  current2 = &red[0];
   }
   else if(checkClick(x,y,&gTriangleVertices3[0],8)==1){
 	  LOGI(
-	"Clicked 3");
 	  jclass clazz = env->FindClass("com/android/gl2jni/GL2JNILib");
-	      	  //jclass clazz = env->GetObjectClass(obj);
-	      jmethodID method = env->GetMethodID(clazz, "playA", "()V");
-	      env->CallVoidMethod(obj, method);
+	  jmethodID method = env->GetMethodID(clazz, "playA", "()V");
+	  env->CallVoidMethod(obj, method);
 
 	  current3 =  &red[0];
   }
   else if(checkClick(x,y,&gTriangleVertices4[0],8)==1){
-	  LOGI("Clicked 4");
 	  jclass clazz = env->FindClass("com/android/gl2jni/GL2JNILib");
-	  	  	  	  	      	  //jclass clazz = env->GetObjectClass(obj);
-	  	  	  	  	      jmethodID method = env->GetMethodID(clazz, "playD", "()V");
-	  	  	  	  	      env->CallVoidMethod(obj, method);
-	  	  LOGI("Clicked 2");
+	  jmethodID method = env->GetMethodID(clazz, "playD", "()V");
+	  env->CallVoidMethod(obj, method);
 	  current4 =  &red[0];
   }
   else if(checkClick(x,y,&gTriangleVertices5[0],8)==1){
-	  LOGI("Clicked 5");
 	  jclass clazz = env->FindClass("com/android/gl2jni/GL2JNILib");
-	  	  	  	  	      	  //jclass clazz = env->GetObjectClass(obj);
-	  	  	  	  	      jmethodID method = env->GetMethodID(clazz, "playFSharp", "()V");
-	  	  	  	  	      env->CallVoidMethod(obj, method);
-	  	  LOGI("Clicked 2");
+	  jmethodID method = env->GetMethodID(clazz, "playFSharp", "()V");
+	  env->CallVoidMethod(obj, method);
 	  current5 =  &red[0];
   }
   else if(checkClick(x,y,&gTriangleVertices6[0],8)==1){
-	  LOGI("Clicked 6");
 	  jclass clazz = env->FindClass("com/android/gl2jni/GL2JNILib");
-	  	  	  	      	  //jclass clazz = env->GetObjectClass(obj);
-	  	  	  	      jmethodID method = env->GetMethodID(clazz, "playC", "()V");
-	  	  	  	      env->CallVoidMethod(obj, method);
+	  jmethodID method = env->GetMethodID(clazz, "playC", "()V");
+	  env->CallVoidMethod(obj, method);
 	  current6 =  &red[0];
   }
   else if(checkClick(x,y,&gTriangleVertices7[0],8)==1){
-	  LOGI(
-	"Clicked 7")
-;
 	  jclass clazz = env->FindClass("com/android/gl2jni/GL2JNILib");
-	  	      	  //jclass clazz = env->GetObjectClass(obj);
-	  	      jmethodID method = env->GetMethodID(clazz, "playG", "()V");
-	  	      env->CallVoidMethod(obj, method);
+	  jmethodID method = env->GetMethodID(clazz, "playG", "()V");
+	  env->CallVoidMethod(obj, method);
 	  current7 =  &red[0];
   }
-  //current = &red[0];
 }
 
 JNIEXPORT void JNICALL Java_com_android_gl2jni_GL2JNILib_touchUp(JNIEnv * env, jobject obj, jfloat x, jfloat y)
 {
-  LOGI("Touch Recieved %f,%f", x, y)
-;
-
-current1 = &yellow[0];
-current2 = &yellow[0];
-current3 = &yellow[0];
-current4 = &yellow[0];
-current5 = &yellow[0];
-current6 = &yellow[0];
-current7 = &yellow[0];
+  if(checkClick(x,y,&gTriangleVertices1[0],8)==1){
+    current1 = &yellow[0];
+  }
+  else if(checkClick(x,y, &gTriangleVertices2[0],8)==1){
+	current2 = &yellow[0];
+  }
+  else if(checkClick(x,y,&gTriangleVertices3[0],8)==1){
+	current3 =  &yellow[0];
+  }
+  else if(checkClick(x,y,&gTriangleVertices4[0],8)==1){
+	current4 =  &yellow[0];
+  }
+  else if(checkClick(x,y,&gTriangleVertices5[0],8)==1){
+	  current5 =  &yellow[0];
+  }
+  else if(checkClick(x,y,&gTriangleVertices6[0],8)==1){
+    current6 =  &yellow[0];
+  }
+  else if(checkClick(x,y,&gTriangleVertices7[0],8)==1){
+    current7 =  &yellow[0];
+  }
 }
 
 JNIEXPORT void JNICALL Java_com_android_gl2jni_GL2JNILib_step(JNIEnv * env, jobject obj)
