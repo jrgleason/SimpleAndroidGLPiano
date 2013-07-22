@@ -90,13 +90,14 @@ public class GL2JNIActivity extends Activity implements View.OnTouchListener {
 			normilized = ConvertToGL(event.getX(event.getActionIndex()), event.getY(event.getActionIndex()));
 			lib.touch(normilized[0], normilized[1]);
 			break;
-		case MotionEvent.ACTION_UP:
-			normilized = ConvertToGL(event.getX(), event.getY());
-			GL2JNILib.touchUp(normilized[0], normilized[1]);
 		case MotionEvent.ACTION_POINTER_UP:
 //			Log.d("Test",Integer.toString(event.getActionIndex()));
 			normilized = ConvertToGL(event.getX(event.getActionIndex()), event.getY(event.getActionIndex()));
 			lib.touchUp(normilized[0], normilized[1]);
+			break;
+		case MotionEvent.ACTION_UP:
+			//TODO: fix
+			//lib.touchUpAll();
 			break;
 		}
 		

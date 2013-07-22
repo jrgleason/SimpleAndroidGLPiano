@@ -67,8 +67,11 @@ public class GL2JNILib {
 	public static native void init(int width, int height);
 
 	public native void touch(float x, float y);
+	
+	//TODO: This isn't working yet
+	//public static native void touchUpAll();
 
-	public static native void touchUp(float x, float y);
+	public native void touchUp(float x, float y);
 
 	public static native void step();
 

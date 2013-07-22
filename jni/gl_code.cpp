@@ -316,6 +316,7 @@ JNIEXPORT void JNICALL Java_com_android_gl2jni_GL2JNILib_init(JNIEnv * env, jobj
 JNIEXPORT void JNICALL Java_com_android_gl2jni_GL2JNILib_step(JNIEnv * env, jobject obj);
 JNIEXPORT void JNICALL Java_com_android_gl2jni_GL2JNILib_touch(JNIEnv * env, jobject obj, jfloat x, jfloat y);
 JNIEXPORT void JNICALL Java_com_android_gl2jni_GL2JNILib_touchUp(JNIEnv * env, jobject obj, jfloat x, jfloat y);
+JNIEXPORT void JNICALL Java_com_android_gl2jni_GL2JNILib_touchUpAll(JNIEnv * env, jobject obj);
 }
 ;
 
@@ -343,7 +344,6 @@ JNIEXPORT void JNICALL Java_com_android_gl2jni_GL2JNILib_touch(JNIEnv * env, job
 	  current2 = &red[0];
   }
   else if(checkClick(x,y,&gTriangleVertices3[0],8)==1){
-	  LOGI(
 	  jclass clazz = env->FindClass("com/android/gl2jni/GL2JNILib");
 	  jmethodID method = env->GetMethodID(clazz, "playA", "()V");
 	  env->CallVoidMethod(obj, method);
@@ -379,6 +379,7 @@ JNIEXPORT void JNICALL Java_com_android_gl2jni_GL2JNILib_touch(JNIEnv * env, job
 JNIEXPORT void JNICALL Java_com_android_gl2jni_GL2JNILib_touchUp(JNIEnv * env, jobject obj, jfloat x, jfloat y)
 {
   if(checkClick(x,y,&gTriangleVertices1[0],8)==1){
+	LOGI("%f,%f",x,y);
     current1 = &yellow[0];
   }
   else if(checkClick(x,y, &gTriangleVertices2[0],8)==1){
@@ -400,6 +401,18 @@ JNIEXPORT void JNICALL Java_com_android_gl2jni_GL2JNILib_touchUp(JNIEnv * env, j
     current7 =  &yellow[0];
   }
 }
+
+JNIEXPORT void JNICALL Java_com_android_gl2jni_GL2JNILib_touchUpAll(JNIEnv * env, jobject obj)
+{
+    current1 =  &yellow[0];
+    current2 =  &yellow[0];
+    current3 =  &yellow[0];
+    current4 =  &yellow[0];
+    current5 =  &yellow[0];
+    current6 =  &yellow[0];
+    current7 =  &yellow[0];
+}
+
 
 JNIEXPORT void JNICALL Java_com_android_gl2jni_GL2JNILib_step(JNIEnv * env, jobject obj)
 {
